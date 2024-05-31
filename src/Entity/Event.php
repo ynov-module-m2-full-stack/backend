@@ -31,15 +31,10 @@ class Event
     #[ORM\Column(nullable: true)]
     private ?float $price = null;
 
-    /**
-     * @var Collection<int, User>
-     */
-    #[ORM\ManyToMany(targetEntity: User::class)]
-    private Collection $subscribers;
 
     public function __construct()
     {
-        $this->subscribers = new ArrayCollection();
+        
     }
 
     public function getId(): ?int
