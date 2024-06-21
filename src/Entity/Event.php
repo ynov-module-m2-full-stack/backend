@@ -34,7 +34,7 @@ class Event
 
     public function __construct()
     {
-        
+
     }
 
     public function getId(): ?int
@@ -102,27 +102,5 @@ class Event
         return $this;
     }
 
-    /**
-     * @return Collection<int, User>
-     */
-    public function getSubscribers(): Collection
-    {
-        return $this->subscribers;
-    }
 
-    public function addSubscriber(User $subscriber): static
-    {
-        if (!$this->subscribers->contains($subscriber)) {
-            $this->subscribers->add($subscriber);
-        }
-
-        return $this;
-    }
-
-    public function removeSubscriber(User $subscriber): static
-    {
-        $this->subscribers->removeElement($subscriber);
-
-        return $this;
-    }
 }

@@ -1,0 +1,25 @@
+services:
+  db:
+    image: mariadb
+    environment: 
+      MARIADB_ROOT_PASSWORD: BeSkilled123
+      MARIADB_DATABASE: db
+    ports:
+      - 3307:3306
+    networks:
+      - db
+
+  phpMyAdmin:
+    image: phpmyadmin
+    ports: 
+      - 8080:80
+    networks:
+      - db
+    environment:
+      PMA_HOST: db  # Use the network alias of the "db" service
+      
+volumes:
+  data:
+
+networks:
+  db:
