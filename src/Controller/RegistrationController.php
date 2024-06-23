@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 class RegistrationController extends AbstractController
 {
-    #[Route('/api/registration', name: 'app_registration', methods: ['POST'])]
+    #[Route('/api/users', name: 'user.creation', methods: ['POST'])]
     public function index(Request $request, EntityManagerInterface $entityManager, serializerInterface $serializer, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user_data = $request->getContent();
