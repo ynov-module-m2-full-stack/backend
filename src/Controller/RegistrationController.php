@@ -10,7 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
-use Nelmio\ApiDocBundle\Annotation\Model;
+
 
 class RegistrationController extends AbstractController
 {
@@ -59,17 +59,10 @@ class RegistrationController extends AbstractController
         ]);
     }
 
-    #[Route('/api/users/{id}', name: 'user.details', methods: ['GET'])]
+    #[Route('/api/users', name: 'user.isAdmin', methods: ['GET'])]
     #[\Nelmio\ApiDocBundle\Annotation\Get(
-        summary: "Get user details by ID",
-        parameters: [
-            [
-                "name" => "id",
-                "dataType" => "integer",
-                "required" => true,
-                "description" => "User ID",
-            ]
-        ],
+        summary: "Get user role by token",
+
         response: [
             200 => [
                 "description" => "Successful retrieval of user details",
@@ -80,8 +73,12 @@ class RegistrationController extends AbstractController
             ],
         ]
     )]
-    public function getUserDetails(User $user): Response
+    public function getUserDetails(): Response
     {
+
+        // Get the user object
+        $user = $this->getUser();
+        $user->setPassword("");
         return $this->json($user);
     }
 
