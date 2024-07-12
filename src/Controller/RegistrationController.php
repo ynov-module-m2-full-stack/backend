@@ -52,11 +52,8 @@ class RegistrationController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        return $this->json([
-            'user' => $user,
-            'message' => 'User created successfully',
-            'path' => 'src/Controller/RegistrationController.php'
-        ]);
+
+        return new Response(null, Response::HTTP_NO_CONTENT);
     }
 
     #[Route('/api/users', name: 'user.isAdmin', methods: ['GET'])]

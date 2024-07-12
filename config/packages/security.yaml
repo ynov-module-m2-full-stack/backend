@@ -33,11 +33,13 @@ security:
             refresh_jwt:
                 check_path: /api/token/refresh
                 provider: app_user_provider
+
+        
     access_control:
-        - { path: ^/api/(login_check|token/refresh), roles: PUBLIC_ACCESS }
+        - { path: ^/api/login_check, roles: PUBLIC_ACCESS }
         - { path: ^/api/doc, roles: PUBLIC_ACCESS }
         - { path: ^/api/users, roles: PUBLIC_ACCESS}
-        - { path: ^/api/events, roles: PUBLIC_ACCESS }
+        - { path: ^/api/token/refresh, roles: PUBLIC_ACCESS }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
 when@test:
     security:
