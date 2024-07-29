@@ -86,11 +86,11 @@ class EventController extends AbstractController
         $data = json_decode($request->getContent(), true);
 
         $event = new Event();
-        $event->setName($data['name']);
+        $event->setName($data['title']);
         $event->setStartDate(new \DateTime($data['startDate']));
         $event->setEndDate(new \DateTime($data['endDate']));
-        $event->setCity($data['city']);
-        $event->setPrice($data['price']);
+        $event->setCity("Lyon");
+        $event->setPrice(0);
 
         $entityManager->persist($event);
         $entityManager->flush();
@@ -134,11 +134,9 @@ class EventController extends AbstractController
     {
         $data = json_decode($request->getContent(), true);
 
-        $event->setName($data['name']);
+        $event->setName($data['title']);
         $event->setStartDate(new \DateTime($data['startDate']));
         $event->setEndDate(new \DateTime($data['endDate']));
-        $event->setCity($data['city']);
-        $event->setPrice($data['price']);
 
         $entityManager->flush();
 
