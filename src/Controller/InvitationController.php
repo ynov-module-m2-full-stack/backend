@@ -13,11 +13,19 @@ use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Attributes as OA;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Symfony\Bundle\SecurityBundle\Security;
+use App\Service\MyService;
 
 class InvitationController extends AbstractController
 {
- function __construct(private Security $security)
+ function __construct(private Security $security, MyService $myService)
     {
+        $this->myService = $myService;
+    }
+
+    public function index(): Response
+    {
+        $data = $this->myService->getExpensiveData();
+        return new Response('<html><body><pre>' . print_r($data, true) . '</pre></body></html>');
     }
 
     #[Route('/api/invitations', name: 'get_invitations', methods: ['GET'])]

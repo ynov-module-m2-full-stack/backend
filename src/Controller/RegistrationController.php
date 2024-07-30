@@ -10,10 +10,23 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
-
+use App\Service\MyService;
 
 class RegistrationController extends AbstractController
 {
+    private $myService;
+
+    public function __construct(MyService $myService)
+    {
+        $this->myService = $myService;
+    }
+
+    public function index(): Response
+    {
+        $data = $this->myService->getExpensiveData();
+        return new Response('<html><body><pre>' . print_r($data, true) . '</pre></body></html>');
+    }
+
     #[Route('/api/users', name: 'user.creation', methods: ['POST'])]
     #[\Nelmio\ApiDocBundle\Annotation\Post(
         summary: "Create a new user",
