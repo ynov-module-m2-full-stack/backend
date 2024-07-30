@@ -10,19 +10,17 @@ Prerequisites:
     Composer
 
 Cloning the project:
-Bash
+    Bash
+    
+    git clone https://github.com/ynov-module-m2-full-stack/backend.git
+    cd backend
 
-git clone https://github.com/ynov-module-m2-full-stack/backend.git
-cd backend
-
-Utilisez ce code avec précaution.
 
 Installing dependencies:
-Bash
+    Bash
+    
+    composer install
 
-composer install
-
-Utilisez ce code avec précaution.
 
 Database configuration:
 
@@ -30,19 +28,17 @@ Database configuration:
     Update the .env.local or .env.prod file with your database connection information.
 
 Database migrations:
-Bash
+    Bash
+    
+    bin/console doctrine:migrations:migrate
 
-bin/console doctrine:migrations:migrate
-
-Utilisez ce code avec précaution.
 
 Generating entities (optional):
 If you need to define custom entities with Doctrine, use the following command (replace YourEntity with your entity name):
-Bash
+    Bash
+    
+    bin/console make:entity YourEntity
 
-bin/console make:entity YourEntity
-
-Utilisez ce code avec précaution.
 
 Configuring JWT and refresh tokens:
 
@@ -56,17 +52,15 @@ Configuring JWT and refresh tokens:
 
         php bin/console lexik:jwt:generate-keypair
 
-        Utilisez ce code avec précaution.
 
     Advanced configuration:
         Modify the configuration files config/packages/lexik_jwt_authentication.yaml and config/packages/security.yaml to customize JWT settings (token lifetime, issuer, etc.).
 
 Starting the development server:
-Bash
+    Bash
+    
+    bin/console server:start 127.0.0.1:8000
 
-bin/console server:start 127.0.0.1:8000
-
-Utilisez ce code avec précaution.
 Usage
 
     Consult the API documentation for endpoints and authentication details.
@@ -107,14 +101,12 @@ Installation
     git clone https://github.com/ynov-module-m2-full-stack/backend.git
     cd backend
 
-    Utilisez ce code avec précaution.
 
 Installation des dépendances:
 Bash
 
 composer install
 
-Utilisez ce code avec précaution.
 
 Configuration de la base de données:
 
@@ -122,19 +114,17 @@ Configuration de la base de données:
     Mettez à jour le fichier .env.local ou .env.prod avec les informations de connexion à votre base de données.
 
 Migrations de la base de données:
-Bash
+    Bash
+    
+    bin/console doctrine:migrations:migrate
 
-bin/console doctrine:migrations:migrate
-
-Utilisez ce code avec précaution.
 
 Génération des entités (optionnel):
 Si vous avez besoin de définir des entités personnalisées avec Doctrine, utilisez la commande suivante (remplacez VotreEntite par le nom de votre entité):
-Bash
+    Bash
+    
+    bin/console make:entity VotreEntite
 
-bin/console make:entity VotreEntite
-
-Utilisez ce code avec précaution.
 
 Configuration de JWT et des tokens de rafraîchissement:
 
@@ -148,17 +138,15 @@ Configuration de JWT et des tokens de rafraîchissement:
 
         php bin/console lexik:jwt:generate-keypair
 
-        Utilisez ce code avec précaution.
 
     Configuration avancée:
         Modifiez les fichiers de configuration config/packages/lexik_jwt_authentication.yaml et config/packages/security.yaml pour personnaliser les paramètres de JWT (durée de vie des tokens, émetteur, etc.).
 
 Démarrage du serveur de développement:
-Bash
+    Bash
+    
+    bin/console server:start 127.0.0.1:8000
 
-bin/console server:start 127.0.0.1:8000
-
-Utilisez ce code avec précaution.
 
 Utilisation
 
