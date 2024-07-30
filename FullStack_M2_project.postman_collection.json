@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "4ff661f8-d17e-4ef9-9869-8b6866cafc6d",
+		"name": "FullStack M2 project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23835590"
+	},
+	"item": [
+		{
+			"name": "/api/registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test1@test.com\",\r\n    \"password\":\"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/event/{id}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjIyNjMyMjgsImV4cCI6MTcyMjI2NjgyOCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlckBnbWFpbC5jb20ifQ.MUMyrfc_6TSAH1qzF6SnX5bLxsXP6FrmjPCpdBV9Nje73oteVkAMiN5HGOeGGS1jXJm8OsCW7UEGyuKACKnVttbm9DnflKhJzFFK9lVOZ2B4pZ3RN-h8Ul78Yp_uLcAvocnqi96DGvXmScMuMS6gJdrQ530uqzwO7SQ7ObObm3-ld6Eh__jXa7MRdV0scUOuM_9IJH8hIrcg8OIrcDxRhVg8w5BA2hVxJ30Hf039iy6zqZHBpdvdloyfzV6xee6tvSz-1iURkLU6L__Yot_wi_4RfwdiiHKQp8CkAzdvQIw9JtzqRFGAFodzKW5NSIKAxjuk48LhQ_RoNLC9zU_tyQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"testtestcom\",\r\n    \"startDate\":\"2024-07-31 11:00:00\",\r\n    \"endDate\":\"2024-07-31 15:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/events/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/login_check",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "af8c1f63037a43c132d5992b88260d13e78b916a8e93f798c720912f624c3f39bf8f41d42990aff863baff053133154b7ce07c14dee236fd939ff970f99a7a72",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"user@gmail.com\",\"password\":\"user\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login_check",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login_check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/token/refresh",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"refreshToken\": \"f2bc1280b600adf13d70accee794d50f996fe0e38659ec86ac28963efdad3f8c459fc7c9ecd2099ad882c7238875fe80ad760431e7346a3c06b09cf640770e43\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/token/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/event",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTkyNTI4ODksImV4cCI6MTcxOTI1NjQ4OSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlckBnbWFpbC5jb20ifQ.avVsT0Kmlzdm7tgM_EwAMKIhV3fABaB6J86b-QL55dVxHQeOKrw1ZPokGOcIKjGepXRwYH5_Upsp3DFyQsHOx_NNy5OGDldymBLrP9vVnCJltlU6_e5QfrkRGxdZXefkCS1xBDqFs5tUVDe4ZTu1jJvwB5KfMTUrZDO_oKECLosymrBliG0zfMH6H72oGG84TxTfRXZRNJEkv45eLbPaOo6AK8H1j80_dLaMkqiR5a0Yb3c9PZk3Aqll9AGQIcwpEQzIZQ0WnIcxVnSRiXRKsRbQtHDHzQtd3_ovQi_LnQ7HYmxUjRHerXeboR6RX8aRL19Mr0GQ3E_aVQF5Wj6D9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test01\",\r\n    \"status\": \"off\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/event",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"event"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
