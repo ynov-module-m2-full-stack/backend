@@ -10,9 +10,24 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Attributes as OA;
 use Nelmio\ApiDocBundle\Annotation\Model;
+use App\Service\MyService;
 
 class EventController extends AbstractController
 {
+
+private $myService;
+
+    public function __construct(MyService $myService)
+    {
+        $this->myService = $myService;
+    }
+
+    public function index(): Response
+    {
+        $data = $this->myService->getExpensiveData();
+        return new Response('<html><body><pre>' . print_r($data, true) . '</pre></body></html>');
+    }
+
     #[Route('/api/events', name: 'get_events', methods: ['GET'])]
     #[OA\Get(
         summary: 'Get the list of all events',
